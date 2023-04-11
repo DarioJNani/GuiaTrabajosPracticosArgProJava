@@ -2,19 +2,21 @@ package EjerciciosClase5;
 
 public class Cliente {
 	
-	public Cliente(int dni, String nombre, String dire, String cel, String correo, boolean clienteVip) {
+	public Cliente(int dni, String nombre, String dire, String cel, String correo, boolean clienteVip, boolean pago, boolean bancor) {
 		
 		this.dni=dni;
 		this.nombre=nombre;
 		this.dire=dire;
 		this.cel=cel;
 		this.correo=correo;
-		clienteVip= true;
+		this.clienteVip=clienteVip;
+		this.pago=pago;
+		this.bancor=bancor;
 	}
 	
 	public Cliente(int dni, String nombre) {
 		
-		this(dni, nombre, "Por defecto","351000000", "correoclientex@gmail.com", false);
+		this(dni, nombre, "Por defecto","351000000", "correoclientex@gmail.com", false, false, true);
 	}
 	
 	//metodos getters
@@ -25,10 +27,16 @@ public class Cliente {
 		return nombre;
 	}
 	public String dameInfo() {
-		return dire +"/n" + cel +"/n" + correo;
+		return dire +"**" + cel +"**" + correo;
 	}
 	public boolean dameTipo() {
 		return clienteVip;
+	}
+	public boolean damePago() {
+		return pago;
+	}
+	public boolean dameBanco() {
+		return bancor;
 	}
 	
 	private int dni;
@@ -37,6 +45,12 @@ public class Cliente {
 	private String cel;
 	private String correo;
 	private boolean clienteVip;
+	private boolean pago;
+	private boolean bancor;
 	
-
+	
+	@Override
+	public String toString() {
+		return "Nombre: "+nombre+"\nDNI: "+dni+"\nTel: "+cel;
+	}
 }
